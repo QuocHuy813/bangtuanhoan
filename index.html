@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Bảng Tuần Hoàn Hóa Học</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ⚗
+            </div>
+
+            <div>
+                <h1>BẢNG TUẦN HOÀN</h1>
+                <span>PERIODIC TABLE</span>
+            </div>
+
+        </div>
+
+
+        <div class="header-right">
+
+            <div class="search-box">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Tìm nguyên tố..."
+                >
+
+            </div>
+
+            <div class="element-count">
+                118 nguyên tố
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==================================================
+         MAIN
+    ================================================== -->
+
+    <main class="main">
+
+        <section class="intro">
+
+            <div>
+
+                <p class="small-title">
+                    KHÁM PHÁ HÓA HỌC
+                </p>
+
+                <h2>
+                    Bảng tuần hoàn
+                    <span>hóa học</span>
+                </h2>
+
+                <p class="description">
+                    Nhấn vào một nguyên tố để xem thông tin chi tiết,
+                    tính chất hóa học, tính chất vật lí và lịch sử hình thành.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             LEGEND
+        ================================================== -->
+
+        <section class="legend">
+
+            <div class="legend-item">
+                <i class="alkali"></i>
+                Kim loại kiềm
+            </div>
+
+            <div class="legend-item">
+                <i class="alkaline"></i>
+                Kim loại kiềm thổ
+            </div>
+
+            <div class="legend-item">
+                <i class="transition"></i>
+                Kim loại chuyển tiếp
+            </div>
+
+            <div class="legend-item">
+                <i class="post-transition"></i>
+                Kim loại sau chuyển tiếp
+            </div>
+
+            <div class="legend-item">
+                <i class="metalloid"></i>
+                Á kim
+            </div>
+
+            <div class="legend-item">
+                <i class="nonmetal"></i>
+                Phi kim
+            </div>
+
+            <div class="legend-item">
+                <i class="halogen"></i>
+                Halogen
+            </div>
+
+            <div class="legend-item">
+                <i class="noble"></i>
+                Khí hiếm
+            </div>
+
+            <div class="legend-item">
+                <i class="lanthanide"></i>
+                Họ Lantan
+            </div>
+
+            <div class="legend-item">
+                <i class="actinide"></i>
+                Họ Actini
+            </div>
+
+        </section>
+
+
+        <!-- ==================================================
+             PERIODIC TABLE
+        ================================================== -->
+
+        <section class="table-wrapper">
+
+            <div class="periodic-table" id="periodicTable">
+
+                <!-- JavaScript sẽ tạo 118 nguyên tố -->
+
+            </div>
+
+
+            <!-- LANTHANIDE -->
+
+            <div class="series-title">
+                <span>57–71</span>
+                HỌ LANTAN
+            </div>
+
+            <div
+                class="series"
+                id="lanthanides"
+            ></div>
+
+
+            <!-- ACTINIDE -->
+
+            <div class="series-title">
+                <span>89–103</span>
+                HỌ ACTINI
+            </div>
+
+            <div
+                class="series"
+                id="actinides"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================================================
+         DETAIL OVERLAY
+    ================================================== -->
+
+    <div
+        class="detail-overlay"
+        id="detailOverlay"
+    >
+
+        <div
+            class="detail-panel"
+            id="detailPanel"
+        >
+
+            <!-- CLOSE -->
+
+            <button
+                class="close-button"
+                id="closeButton"
+            >
+                ×
+            </button>
+
+
+            <!-- ==================================================
+                 ELEMENT HEADER
+            ================================================== -->
+
+            <div
+                class="element-header"
+                id="elementHeader"
+            >
+
+                <div class="element-number">
+
+                    <span>SỐ HIỆU</span>
+
+                    <strong id="detailNumber">
+                        1
+                    </strong>
+
+                </div>
+
+
+                <div class="big-symbol">
+
+                    <span id="detailSymbol">
+                        H
+                    </span>
+
+                </div>
+
+
+                <div class="element-name">
+
+                    <span id="detailType">
+                        Phi kim
+                    </span>
+
+                    <h2 id="detailName">
+                        Hiđrô
+                    </h2>
+
+                    <button
+                        class="speak-button"
+                        id="speakButton"
+                    >
+                        🔊 Đọc tên
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 QUICK INFORMATION
+            ================================================== -->
+
+            <div class="quick-info">
+
+                <div class="quick-card">
+
+                    <span>
+                        Ký hiệu
+                    </span>
+
+                    <strong id="infoSymbol">
+                        H
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-card">
+
+                    <span>
+                        Số hiệu nguyên tử
+                    </span>
+
+                    <strong id="infoNumber">
+                        1
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-card">
+
+                    <span>
+                        Nhóm
+                    </span>
+
+                    <strong id="infoGroup">
+                        Nhóm 1
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-card">
+
+                    <span>
+                        Chu kỳ
+                    </span>
+
+                    <strong id="infoPeriod">
+                        Chu kỳ 1
+                    </strong>
+
+                </div>
+
+
+                <div class="quick-card">
+
+                    <span>
+                        Loại
+                    </span>
+
+                    <strong id="infoType">
+                        Phi kim
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 TABS
+            ================================================== -->
+
+            <div class="tabs">
+
+                <button
+                    class="tab-button active"
+                    data-tab="chemical"
+                >
+                    ⚗ Tính chất hóa học
+                </button>
+
+                <button
+                    class="tab-button"
+                    data-tab="physical"
+                >
+                    ◈ Tính chất vật lí
+                </button>
+
+                <button
+                    class="tab-button"
+                    data-tab="history"
+                >
+                    ◷ Lịch sử
+                </button>
+
+            </div>
+
+
+            <!-- ==================================================
+                 CHEMICAL
+            ================================================== -->
+
+            <div
+                class="tab-content active"
+                id="chemicalTab"
+            >
+
+                <div class="information-card">
+
+                    <div class="information-title">
+
+                        <div class="title-icon">
+                            ⚗
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Tính chất hóa học
+                            </h3>
+
+                            <p>
+                                Thông tin về đặc điểm và phản ứng hóa học
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="information-content"
+                        id="chemicalContent"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 PHYSICAL
+            ================================================== -->
+
+            <div
+                class="tab-content"
+                id="physicalTab"
+            >
+
+                <div class="information-card">
+
+                    <div class="information-title">
+
+                        <div class="title-icon">
+                            ◈
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Tính chất vật lí
+                            </h3>
+
+                            <p>
+                                Đặc điểm vật lí của nguyên tố
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="information-content"
+                        id="physicalContent"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ==================================================
+                 HISTORY
+            ================================================== -->
+
+            <div
+                class="tab-content"
+                id="historyTab"
+            >
+
+                <div class="history-grid">
+
+                    <div class="information-card">
+
+                        <div class="information-title">
+
+                            <div class="title-icon">
+                                ◷
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Lịch sử hình thành
+                                </h3>
+
+                                <p>
+                                    Nguồn gốc và lịch sử phát hiện
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="information-content"
+                            id="historyContent"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="information-card">
+
+                        <div class="information-title">
+
+                            <div class="title-icon">
+                                🖼
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Hình ảnh minh họa
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="image-area">
+
+                            <img
+                                id="elementImage"
+                                alt="Hình ảnh nguyên tố"
+                            >
+
+                            <div
+                                class="image-placeholder"
+                                id="imagePlaceholder"
+                            >
+
+                                <span>
+                                    🧪
+                                </span>
+
+                                <p>
+                                    Chưa có hình ảnh
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
