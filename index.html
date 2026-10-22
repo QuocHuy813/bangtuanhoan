@@ -55,6 +55,8 @@
 
             </div>
 
+            <button class="reaction-nav-button" id="reactionNavButton" type="button">⚗ Phản ứng</button>
+
             <div class="element-count">
                 118 nguyên tố
             </div>
@@ -158,6 +160,13 @@
 
         <section class="table-wrapper">
 
+            <div class="presentation-author">
+                <span class="presentation-label">BÀI TẬP / THUYẾT TRÌNH BẢNG TUẦN HOÀN</span>
+                <strong>Ngô Lê Bảo Ngọc</strong>
+                <span class="author-class">Lớp 10/2</span>
+                <span class="author-year">Năm học 2026–2027</span>
+            </div>
+
             <div class="periodic-table" id="periodicTable">
 
                 <!-- JavaScript sẽ tạo 118 nguyên tố -->
@@ -169,7 +178,7 @@
 
             <div class="series-title">
                 <span>57–71</span>
-                HỌ LANTAN
+                HỌ LANTAN • DẢI CHUYỂN TIẾP
             </div>
 
             <div
@@ -182,7 +191,7 @@
 
             <div class="series-title">
                 <span>89–103</span>
-                HỌ ACTINI
+                HỌ ACTINI • DẢI CHUYỂN TIẾP
             </div>
 
             <div
@@ -191,6 +200,68 @@
             ></div>
 
         </section>
+
+        <!-- ==================================================
+             PHÒNG PHẢN ỨNG HÓA HỌC
+        ================================================== -->
+
+        <section class="reaction-section" id="reactionSection">
+            <div class="section-heading">
+                <span class="small-title">PHÒNG PHẢN ỨNG HÓA HỌC</span>
+                <h2>Cho 2 chất vào và <span>kiểm tra phản ứng</span></h2>
+                <p>Chỉ cần nhập công thức của 2 chất để xem phương trình phản ứng mẫu.</p>
+            </div>
+
+            <div class="reaction-box">
+                <div class="reaction-input-grid">
+                    <div class="reaction-input-card">
+                        <label for="reactionInputA">Chất 1</label>
+                        <input id="reactionInputA" type="text" placeholder="Nhập: H2, NaOH, HCl...">
+                    </div>
+
+                    <div class="reaction-plus">+</div>
+
+                    <div class="reaction-input-card">
+                        <label for="reactionInputB">Chất 2</label>
+                        <input id="reactionInputB" type="text" placeholder="Nhập: O2, Cl2, H2SO4...">
+                    </div>
+                </div>
+
+                <div class="reaction-actions">
+                    <button id="reactionRunButton" class="reaction-run-button" type="button">⚗ Xảy ra phản ứng</button>
+                    <button id="reactionClearButton" class="reaction-clear-button" type="button">Xóa</button>
+                </div>
+
+                <div class="reaction-examples">
+                    <span>Ví dụ:</span>
+                    <button type="button" data-reaction-example="H2|O2">H₂ + O₂</button>
+                    <button type="button" data-reaction-example="Na|Cl2">Na + Cl₂</button>
+                    <button type="button" data-reaction-example="HCl|NaOH">HCl + NaOH</button>
+                    <button type="button" data-reaction-example="CaCO3|HCl">CaCO₃ + HCl</button>
+                    <button type="button" data-reaction-example="Cl2|NaOH">Cl₂ + NaOH</button>
+                    <button type="button" data-reaction-example="Zn|HCl">Zn + HCl</button>
+                    <button type="button" data-reaction-example="Fe|HCl">Fe + HCl</button>
+                    <button type="button" data-reaction-example="CuO|HCl">CuO + HCl</button>
+                    <button type="button" data-reaction-example="Na2CO3|HCl">Na₂CO₃ + HCl</button>
+                    <button type="button" data-reaction-example="CaO|H2O">CaO + H₂O</button>
+                    <button type="button" data-reaction-example="NH3|HCl">NH₃ + HCl</button>
+                    <button type="button" data-reaction-example="CO2|Ca(OH)2">CO₂ + Ca(OH)₂</button>
+                </div>
+
+                <div class="reaction-result" id="reactionResult" aria-live="polite">
+                    <div class="reaction-result-icon">⚗</div>
+                    <div>
+                        <strong>Chưa chọn chất</strong>
+                        <p>Hãy chọn hoặc nhập 2 chất rồi bấm “Xảy ra phản ứng”.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reaction-note">
+                <strong>Lưu ý:</strong> Đây là mô phỏng phục vụ học tập. Không phải mọi cặp chất đều được hệ thống dự đoán tự động; với cặp chưa có dữ liệu, trang sẽ báo “chưa có dữ liệu”.
+            </div>
+        </section>
+
 
     </main>
 
@@ -368,6 +439,13 @@
                     data-tab="history"
                 >
                     ◷ Lịch sử
+                </button>
+
+                <button
+                    class="tab-button"
+                    data-tab="isotope"
+                >
+                    ◉ Đồng vị
                 </button>
 
             </div>
@@ -548,10 +626,56 @@
 
             </div>
 
-        </div>
+            <!-- ==================================================
+                 ISOTOPES
+            ================================================== -->
 
+            <div
+                class="tab-content"
+                id="isotopeTab"
+            >
+                <div class="information-card isotope-card">
+                    <div class="information-title">
+                        <div class="title-icon">◉</div>
+                        <div>
+                            <h3>Đồng vị</h3>
+                            <p>Cùng số proton, khác số neutron</p>
+                        </div>
+                    </div>
+
+                    <div class="isotope-definition">
+                        <div class="isotope-mini-visual">
+                            <span>p⁺</span>
+                            <span>n⁰</span>
+                            <span>e⁻</span>
+                        </div>
+                        <div>
+                            <strong>Đồng vị là gì?</strong>
+                            <p>
+                                Các nguyên tử của cùng một nguyên tố có cùng số hiệu nguyên tử
+                                <strong>Z</strong> nhưng khác số khối <strong>A</strong>,
+                                tức là khác số neutron.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="information-content"
+                        id="isotopeContent"
+                    ></div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
+    <footer class="site-footer">
+        <div>
+            <strong>Ngô Lê Bảo Ngọc</strong>
+            <span>• Bảng tuần hoàn hóa học</span>
+        </div>
+        <span>Thiết kế phục vụ học tập & thuyết trình</span>
+    </footer>
 
     <script src="app.js"></script>
 
